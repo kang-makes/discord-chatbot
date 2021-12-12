@@ -1,0 +1,12 @@
+auth:
+  appID: an-app-id
+  token: token
+instances:
+- guildID: "868124744"
+  plugins:
+  - name: acceptrules
+    params:
+      channelID: "868195221" # #an-example
+      messageID: "868195246" # https://discord.com/channels/868195221/868195221/868195246
+      emojiName: "👍"
+      roleToAssign: "868290997" # "test"
