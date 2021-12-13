@@ -55,9 +55,12 @@ func (b *Bot) Run(sig chan os.Signal) (err error) {
 
 	b.Auth.Session.Identify.Intents = intents
 
-	b.Auth.Session.Open()
-	log.Info("bot listening to events")
+	err = b.Auth.Session.Open()
+	if err != nil {
+		return fmt.Errorf("discord session could not be opened: %s", err.Error())
+	}
 
+	log.Info("bot listening to events")
 	<-sig
 
 	log.Info("closing gratefully")

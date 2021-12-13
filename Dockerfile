@@ -1,7 +1,10 @@
-FROM scratch
+FROM ubuntu
 
 ARG BINARY_NAME
 
-ENTRYPOINT [ "/bin" ]
+RUN apt-get update; \
+    apt-get install -y ca-certificates
 
-COPY $BINARY_NAME /bin
+ENTRYPOINT [ "/usr/local/bin/entrypoint" ]
+
+COPY $BINARY_NAME /usr/local/bin/entrypoint
